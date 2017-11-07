@@ -1,0 +1,62 @@
+
+.legend {
+  display: inline-block; 
+  margin: 10px;  
+  width: 200px;
+  height: 60px;
+  background-color: hsla(0,0%,100%,.9);	
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;      
+}  
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  float: left;
+  margin-right: 5px;
+} 
+
+.item {
+  font:10px sans-serif;
+  margin-top: 5px;
+  margin-right:55px;
+} 
+
+div.tooltip {	
+  position: absolute;			
+  text-align: left;						
+  padding: 4px;				
+  font: 10px sans-serif;		
+  background: lightgray;
+  /*lightsteelblue;	*/
+  border: 0px;		
+  border-radius: 4px;			
+  pointer-events: none;			
+}  
+
+.center {
+  margin: auto;
+  width: 90%;
+  font:14px sans-serif;
+  padding: 5px;
+  position: relative;
+  display: block;  
+} 
+
+.node rect {
+  cursor: pointer;
+  fill: #fff;
+  fill-opacity: .5;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+h4 { 
+  font:10px sans-serif; 
+  font-weight:bold;  
+}

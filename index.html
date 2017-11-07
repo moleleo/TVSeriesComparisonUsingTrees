@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Collapsible Indented Tree created using D3.js v4. The tree allows to compare some attributes from three of my favorite TV shows.">
+  <meta name="keywords" content="D3.js,D3 v4,HTML,CSS,JavaScript">
+  <meta name="author" content="Leonardo Montero Leguizamón">  
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/d3.v4.min.js"></script>
+  <title>Comparing TV series information using a Collapsible Indented Tree</title>
+</head>
+<body>
+  <div class="center">
+    <br><br/>
+    <h1 align ="center">Comparing TV series information using a Collapsible Indented Tree</h1>
+    <br><br/>
+  </div>
+  <div class="center">
+    <p>This visualization is a tree-like data structure arrangement of data called "Collapsible Indented Tree". An Indented Tree is a visualization technique that has been widely used to organize information, visualize graph-structured data, and to achieve an overview representation of an entire hierarchy.</p>
+    <p>Data for this visualization was extracted from <a target="_blank" href="http://www.imdb.com">The Internet Movie Database (IMDb)</a>. It includes information three of my favorite TV Series currently airing: running times, average user ratings and a synopsis.</p>
+    <p>If you're planning a binge-watching weekend, don't want to spend too much time going through user reviews and ratings, or simply just can't decide what to watch, this one might just be your go-to visualization.</p>
+    <br><br/>
+    <p>There are a couple of things you need to know in order to understand this visualization's information:</p>
+    <p>- Each bar is a tree node, a blue bar represents a TV Series, an orange bar represents a Season, and a green bar represents an Episode.</p>
+    <p>- Higher color saturation in a bar (tree node) means a higher average rating for a particular Series/Season/Episode compared to another in its same level.</p>
+    <p>- Larger bars means greater total running times for a particular Season/Episode compared to another in its same level.</p>
+    <br><br/>
+    <p>To start navigating the data and go deeper into the hierarchy, just click on the "My favorite TV Series" bar below.</p>
+  </div>
+  <div id="legendDiv" class="center"></div>
+  <div id="chartDiv" class="center"></div>
+  <div class="center">
+    <br><br/>
+    <br><br/>
+    <br><br/>
+    <p>This visualization is based on Lars Kotthoff’s “Collapsible Indented Tree” visualization which can be found <a target="_blank" href="http://bl.ocks.org/larskotthoff/7022289">here</a></p>
+    <p>Source data for this visualization can be found at <a target="_blank" href="http://www.imdb.com">The Internet Movie Database (IMDb)</a>.
+    <br><br/>
+    <br><br/>
+    <br><br/>
+  </div>
+	<div align="center" width="100%">
+		<h4>
+			Leonardo Montero Leguizamón<br/>
+			cod. 201629349<br/>
+			Visual Analytics (ISIS 4822) - Fall 2017<br/> 
+			Maestría en Ingeniería de Información (Master of Information Engineering)<br/>
+			Universidad de los Andes<br/>
+			Bogotá D.C.<br/>  
+			Colombia
+		</h4>
+	</div>    
+  <script>
+  
+    var div = d3.select("body").append("div")	
+        .attr("class", "tooltip")				
+        .style("opacity", 0);      
+
+    var margin = {top: 30, right: 20, bottom: 30, left: 20};
+    var width = 1200 - margin.left - margin.right;
+    var barHeight = 20;
+    var barWidth = width * .8;
+    var i = 0;
+    var duration = 500;
+    var root;
+      
+    var tree = d3.tree().nodeSize([0,15])    
+
+    var svg = d3.select("#chartDiv").append("svg")
+          .attr("width", width + margin.left + margin.right)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        
+    var color = d3.scaleOrdinal(d3.schemeCategory10);	
+
+    d3.select("#legendDiv").append("div")
+      .attr("class", "legend");
+  
+    var legend = [];
+    
+    for (i = 1; i <= 3; i++) { 
+      var obj = {};
+      if (i==1) {
+        obj.key = "Series";
+      } else if (i==2) {
+        obj.key = "Season";
+      } else if (i==3) {
+        obj.key = "Episode";
+      }
+      obj.color = color(i);
+      legend.push(obj);    
+    }
+
+    legend.forEach(function(d,i){
+      d3.select(".legend").append("div")
+        .attr("class", "item")
+        .text(d.key)
+      .append("div")
+        .attr("class", "swatch")
+        .style("background",  d.color);
+    });   
+
+    d3.json("data/tvSeriesInfo.json", function(error, flare) {
+      if (error) throw error;
+      root = d3.hierarchy(flare);
+      moveChildren(root);
+      update(root);
+    });
+    
+    function moveChildren(node) {
+      if(node.children) {
+        node.children.forEach(function(c) { moveChildren(c); });
+        node._children = node.children;
+        node.children = null;
+      }
+    }
+    
+    function update(source) {
+      
+      nodes = tree(root);
+      nodesSort = [];
+      
+      nodes.eachBefore(function (n,i) {
+        nodesSort.push(n); 
+      });  
+
+      var height = Math.max(50, nodesSort.length * barHeight + margin.top + margin.bottom);
+
+      d3.select("svg").transition()
+          .duration(duration)
+          .attr("height", height);
+
+      d3.select(self.frameElement).transition()
+          .duration(duration)
+          .style("height", height + "px"); 
+
+      // Compute the "layout".
+      nodesSort.forEach(function(n, i) {
+        n.x = i * barHeight;
+      });
+
+      // Update the nodes
+      var node = svg.selectAll("g.node")
+          .data(nodesSort, function(d) { return d.id || (d.id = ++i); }); // Assign id for each node
+
+      var nodeEnter = node.enter().append("g")
+          .attr("class", "node")
+          .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+          .style("opacity", 1e-6);       
+
+      var scaleSeason = d3.scaleLinear()
+          .domain([200, 620])
+          .range([barWidth/2, barWidth*0.8]);
+
+      var scaleEpisode = d3.scaleLinear()
+          .domain([40, 65])
+          .range([barWidth/2, barWidth*0.6]);
+        
+      var scaleOpacity = d3.scaleQuantize()
+          .domain([8.5, 9.0])
+          .range([0.3, 0.65, 1]);
+          
+      // Enter any new nodes at the parent's previous position.
+      nodeEnter.append("rect")
+          .attr("y", -barHeight / 2)
+          .attr("height", barHeight)
+          .attr("width", function(d) { 
+              if(d.data.hasOwnProperty("length")){
+                if(d.depth == 2){
+                  return scaleSeason(d.data["length"]); 
+                } else if (d.depth == 3){
+                  return scaleEpisode(d.data["length"]); 
+                }
+              } else {
+                return barWidth; 
+              }
+          })
+          .style("fill", function(d) { return color(d.depth); })
+          .style("opacity", function(d) { return scaleOpacity(d.data.rating); })
+          .on("click", click)
+          .on("mouseover", function(d) {	
+              if(d.depth > 0) { 
+              
+                console.log(d);
+              
+                div.transition()		
+                    .duration(1000)		
+                    .style("opacity", .9);		
+              }
+              if(d.depth == 1) {
+                div.style("width" , "300px");
+                div.html( d.data.name +
+                          "<br/>Average user rating: " + d.data.rating.toFixed(1) +
+                          "<br/>" + d.data.description )
+                  .style("left", (d3.event.pageX) + "px")		
+                  .style("top", (d3.event.pageY - 28) + "px");	
+              } else if(d.depth == 2) {
+                div.style("width" , "200px");
+                if( d._children ) {
+                  div.html( d.parent.data.name +
+                            "<br/>" + d.data.name + " (" + d._children.length + " episodes)" +
+                            "<br/>Total running time: " + timeConvert(d.data.length) )
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 28) + "px");	
+                } else {
+                  div.html( d.parent.data.name +
+                            "<br/>" + d.data.name + 
+                            "<br/>Total running time: " + timeConvert(d.data.length) )
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 28) + "px");	
+                }
+                
+              } else if (d.depth == 3){
+                div.style("width" , "300px");                
+                div.html( d.data.name + 
+                          "<br/>Average user rating: " + d.data.rating.toFixed(1) + "&emsp;Running time: " + timeConvert(d.data.length) +
+                          "<br/>" + d.data.description )
+                  .style("left", (d3.event.pageX) + "px")		
+                  .style("top", (d3.event.pageY - 28) + "px");	
+              }                
+          })          
+          .on("mouseout", function(d) {		
+            div.transition()		
+              .duration(1000)		
+              .style("opacity", 0);	
+          });
+
+      nodeEnter.append("text")
+          .attr("dy", 3.5)
+          .attr("dx", 5.5)
+          .text(function(d) {
+              if (d.depth == 0){ 
+                return "Some of my favorite TV Series (Click me)"; 
+              } else if (d.depth == 1 || d.depth == 2){ 
+                return d.data.name; 
+              } else if (d.depth == 3){ 
+                return "Episode " + d.data.episodeNo + " - " + d.data.name; 
+              }
+          });      
+          
+      // Transition nodes to their new position.
+      nodeEnter.transition()
+          .duration(duration)
+          .attr("transform", function(d) { 
+              return "translate(" + d.y + "," + d.x + ")"; 
+          })
+          .style("opacity", 1);
+          
+      node.transition()
+          .duration(duration)
+          .attr("transform", function(d) { 
+              return "translate(" + d.y + "," + d.x + ")"; 
+          })
+          .style("opacity", 1)
+        .select("rect")
+          .style("fill", function(d) { return color(d.depth); });
+
+      // Transition exiting nodes to the parent's new position.
+      node.exit().transition()
+          .duration(duration)
+          .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+          .style("opacity", 1e-6)
+          .remove();
+          
+      // Stash the old positions for transition.
+      nodes.eachBefore(function(d) {
+        d.x0 = d.x;
+        d.y0 = d.y;
+      });      
+     
+    }
+
+    // Toggle children on click.
+    function click(d) {
+      if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+      update(d);
+    }
+    
+    function timeConvert(n) {
+      var num = n;
+      var hours = (num / 60);
+      var rhours = Math.floor(hours);
+      var minutes = (hours - rhours) * 60;
+      var rminutes = Math.round(minutes);
+      if (rhours > 0 ) {
+        return rhours + " hours and " + rminutes + " minutes";
+      } else {
+        return rminutes + " minutes";
+      }
+    }    
+
+  </script>
+</body>

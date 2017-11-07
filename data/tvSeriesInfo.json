@@ -1,0 +1,104 @@
+{
+  "name": "TV Series", 
+  "children": [
+    {
+      "name": "Westworld (HBO)", "rating": 8.8, "description": "Drama · Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite, no matter how noble or depraved, can be indulged without consequence.",
+      "children": [
+        {
+          "name": "Season 01", "rating": 8.9, "length":617,
+          "children": [
+            {"episodeNo": "01", "name": "The Original", "rating": 8.8, "length":68, "description": "Programmer Bernard detects aberrant behavior in recently re-coded hosts; Dolores and Teddy's narrative is upended by a mysterious Man in Black."},
+            {"episodeNo": "02", "name": "Chestnut", "rating": 8.4, "length":58, "description": "Two guests arrive at the park with very different expectations; Maeve's emotions are tweaked; The Man in Black seeks help from a condemned man."},
+            {"episodeNo": "03", "name": "The Stray", "rating": 8.2, "length":59, "description": "Elise and Stubbs search for a missing host; Teddy gets a new backstory; Bernard investigates the origins of madness and hallucinations within the hosts."},
+            {"episodeNo": "04", "name": "Dissonance Theory", "rating": 8.5, "length":58, "description": "Dolores joins William and Logan on a bounty hunt; The Man in Black makes a significant discovery; Ford and Theresa discuss the park's future."},
+            {"episodeNo": "05", "name": "Contrapasso", "rating": 8.6, "length":56, "description": "Dolores, William and Logan reach Pariah, and are recruited for a dangerous mission; The Man in Black meets an unlikely ally."},
+            {"episodeNo": "06", "name": "The Adversary", "rating": 8.7, "length":57, "description": "Maeve charms Felix; Elsie discovers evidence that could point to sabotage; Teddy and the Man in Black conflict with a garrison."},
+            {"episodeNo": "07", "name": "Trompe L'Oeil", "rating": 9.4, "length":56, "description": "Dolores, William and Lawrence journey into treacherous terrain; Maeve presents her demand; Bernard considers his next move."},
+            {"episodeNo": "08", "name": "Trace Decay", "rating": 8.6, "length":57, "description": "Bernard struggles with a mandate; Teddy is troubled by dark memories; Maeve looks to change her script."},
+            {"episodeNo": "09", "name": "The Well-Tempered Clavier", "rating": 9.3, "length":58, "description": "Dolores and Bernard reconnect with their pasts; Maeve makes a bold proposition to Hector; Teddy finds enlightenment, at a price."},
+            {"episodeNo": "10", "name": "The Bicameral Mind", "rating": 9.7, "length":90, "description": "Ford unveils his bold new narrative; Dolores embraces her identity; Maeve sets her plan in motion."}
+          ]
+        }      
+      ]
+    },
+    {
+      "name": "Black Mirror (Netflix)", "rating": 8.3, "description": "Drama · A television anthology series that shows the dark side of life and technology.",
+      "children": [
+        {
+          "name": "Season 01", "rating": 8.3, "length":155,
+          "children": [
+            {"episodeNo": "01", "name": "The National Anthem", "rating": 8.0, "length": 44, "description": "Prime Minister Michael Callow faces a shocking dilemma when Princess Susannah, a much-loved member of the Royal Family, is kidnapped."},
+            {"episodeNo": "02", "name": "Fifteen Million Merits", "rating": 8.3, "length": 62, "description": "In a world where people's lives consist of riding excercise bikes to gain credits, Bing tries to help a woman get on to a singing competition show."},
+            {"episodeNo": "03", "name": "The Entire History of You", "rating": 8.7, "length": 49, "description": "In the near future, everyone has access to a memory implant that records everything they do, see and hear - a sort of Sky Plus for the brain. You need never forget a face again - but is that always a good thing?"}
+          ]
+        },
+        {
+          "name": "Season 02", "rating": 8.1, "length":206,
+          "children": [
+            {"episodeNo": "01", "name": "Be Right Back", "rating": 8.2, "length": 48, "description": "After learning about a new service that lets people stay in touch with the deceased, a lonely, grieving Martha reconnects with her late lover."},
+            {"episodeNo": "02", "name": "White Bear", "rating": 8.2, "length": 42, "description": "Victoria wakes up and cannot remember anything about her life. Everyone she encounters refuses to communicate with her."},
+            {"episodeNo": "03", "name": "The Waldo Moment", "rating": 7.0, "length": 43, "description": "A failed comedian who voices a popular cartoon bear named Waldo finds himself mixing in politics when TV executives want Waldo to run for office."},
+            {"episodeNo": "04", "name": "White Christmas", "rating": 9.2, "length": 73, "description": "Three interconnected tales of technology run amok during the Christmas season are told by two men at a remote outpost in a frozen wilderness."}
+          ]
+        },
+        {
+          "name": "Season 03", "rating": 8.4, "length":382,
+          "children": [
+            {"episodeNo": "01", "name": "Nosedive", "rating": 8.3, "length": 63, "description": "A woman desperate to boost her social media score hits the jackpot when she's invited to a swanky wedding, but the trip doesn't go as planned."},
+            {"episodeNo": "02", "name": "Playtest", "rating": 8.2, "length": 57, "description": "An American traveler short on cash signs up to test a revolutionary new gaming system, but soon can't tell where the hot game ends and reality begins."},
+            {"episodeNo": "03", "name": "Shut Up and Dance", "rating": 8.5, "length": 52, "description": "When withdrawn Kenny stumbles headlong into an online trap, he is quickly forced into an uneasy alliance with shifty Hector, both at the mercy of persons unknown."},
+            {"episodeNo": "04", "name": "San Junipero", "rating": 8.8, "length": 61, "description": "In a seaside town in 1987, a shy young woman and an outgoing party girl strike up a powerful bond that seems to defy the laws of space and time."},
+            {"episodeNo": "05", "name": "Men Against Fire", "rating": 7.9, "length": 60, "description": "Future soldiers Stripe and Raiman must protect frightened villagers from an infestation of vicious feral mutants."},
+            {"episodeNo": "06", "name": "Hated in the Nation", "rating": 8.7, "length": 89, "description": "In near-future London, police detective Karin Parke, and her tech-savvy sidekick Blue, investigate a string of mysterious deaths with a sinister link to social media."}
+          ]
+        }         
+      ]      
+    },
+    {
+      "name": "Mr. robot (USA Network)", "rating": 8.9, "description": "Crime · Follows Elliot, a young programmer working as a cyber-security engineer by day, and a vigilante hacker by night.",
+      "children": [
+        {
+          "name": "Season 01", "rating": 8.9, "length":485,
+          "children": [
+            {"episodeNo": "01", "name": "eps1.0_hellofriend.mov", "rating": 9.3, "length":62, "description": "A notorious hacker takes an interest in cyber security engineer and vigilante styled computer hacker Elliot, while an evil corporation is hacked."},
+            {"episodeNo": "02", "name": "eps1.1_ones-and-zer0es.mpeg", "rating": 8.7, "length":48, "description": "Elliot is torn between accepting a lucrative yet problematic job offer and joining the fsociety hacker group."},
+            {"episodeNo": "03", "name": "eps1.2_d3bug.mkv", "rating": 8.4, "length":46, "description": "Elliot attempts to lead a normal life, but cannot escape fsociety, while Gideon grows suspicious, and Tyrell plays dirty."},
+            {"episodeNo": "04", "name": "eps1.3_da3m0ns.mp4", "rating": 8.2, "length":46, "description": "While dealing with his withdrawal, Elliot suffers a series of hallucinations about his life, while Shayla helps Angela take an unexpected trip."},
+            {"episodeNo": "05", "name": "eps1.4_3xpl0its.wmv", "rating": 8.6, "length":45, "description": "Fsociety attempts to penetrate Steel Mountain, the most secure data facility in America, while Angela makes an important decision."},
+            {"episodeNo": "06", "name": "eps1.5_br4ve-trave1er.asf", "rating": 9.2, "length":45, "description": "Elliot attempts to hack Vera out of jail in order to save someone he cares about; Tyrell's 'game´' gets crazy; and Angela digs deeper into her mother's death."},
+            {"episodeNo": "07", "name": "eps1.6_v1ew-s0urce.flv", "rating": 8.7, "length":45, "description": "Elliot misses Shayla. Angela makes a deal with Colby. Sharon Knowles has an encounter with Tyrell."},
+            {"episodeNo": "08", "name": "eps1.7_wh1ter0se.m4v", "rating": 9.5, "length":45, "description": "Allsafe is hacked and Elliot is meeting White Rose. Tyrell is interrogated by the police and Elliot remembers who he really is."},
+            {"episodeNo": "09", "name": "eps1.8_m1rr0r1ng.qt", "rating": 9.3, "length":49, "description": "Elliot has to face the challenges of his past, and become accustomed to his new found family."},
+            {"episodeNo": "10", "name": "eps1.9_zer0-day.avi", "rating": 8.9, "length":54, "description": "Another huge discovery for Elliot surrounding his family and fsociety, Tyrell's world starts to close around him and Angela has a rather unexpected visitor."}
+          ]
+        },
+        {
+          "name": "Season 02", "rating": 8.8, "length":593,
+          "children": [
+            {"episodeNo": "01", "name": "eps2.0_unm4sk-pt1.tc", "rating": 8.4, "length":62, "description": "Elliot keeps seeing his psychologist, Krista. The new character Susan Jacobs is having trouble with technology. Gideon pays a visit to Elliot complaining he's been targeted for a crime Elliot might have committed. Fsociety are back in action, asking E Corp for 5.9 million dollars in 24 hours."},
+            {"episodeNo": "02", "name": "eps2.0_unm4sk-pt2.tc", "rating": 8.5, "length":48, "description": "Five/nine has changed the world; Elliot is in seclusion; Angela finds happiness at Evil Corp.; fsociety delivers a malicious payload."},
+            {"episodeNo": "03", "name": "eps2.1_k3rnel-pan1c.ksd", "rating": 8.6, "length":46, "description": "Elliot vows to beat Mr. Robot; Angela gets a glimpse behind the curtain at E Corp; and fsociety stirs up trouble."},
+            {"episodeNo": "04", "name": "eps2.2_init_1.asec", "rating": 8.5, "length":46, "description": "Elliot vows to beat Mr. Robot; Angela gets a glimpse behind the curtain at E Corp; and fsociety stirs up trouble."},
+            {"episodeNo": "05", "name": "eps2.3_logic-b0mb.hc", "rating": 9.0, "length":45, "description": "Elliot can't quit the game; Dom and the FBI head to China to investigate 5/9; Joanna is haunted; and Darlene calls on Angela for help."},
+            {"episodeNo": "06", "name": "eps2.4_m4ster-s1ave.aes", "rating": 9.2, "length":45, "description": "Mr. Robot has an original way to show Elliot that he can be useful. Darlene and Angela take a shot at their plan."},
+            {"episodeNo": "07", "name": "eps2.5_h4ndshake.sme", "rating": 9.4, "length":45, "description": "Mr. Robot and Elliot try to keep the peace. Fsociety releases a video honoring Uncle Sam. Darlene acts upon an old desire."},
+            {"episodeNo": "08", "name": "eps2.6_succ3ss0r.p12", "rating": 8.7, "length":45, "description": "The latest fsociety leak has Dom trying her best to spin the case in the FBI's favor; Angela defends her career choices; Darlene makes it known that her circle of trust is shrinking."},
+            {"episodeNo": "09", "name": "eps2.7_init_5.fve", "rating": 8.7, "length":45, "description": "Angela wants more from Evil Corp; Dark Army's allegiance is in question; Elliot and Darlene seek answers."},
+            {"episodeNo": "10", "name": "eps2.8_h1dden-pr0cess.axx", "rating": 9.4, "length":45, "description": "Elliot wonders if Mr. Robot has been lying to him; Darlene attempts to do the right thing; Dom and the FBI get closer."},
+            {"episodeNo": "11", "name": "eps2.9_pyth0n-pt1.p7z", "rating": 8.7, "length":49, "description": "Angela makes an acquaintance; Dom begins seeing the scope of things; an old friend reveals everything to Elliot."},
+            {"episodeNo": "12", "name": "eps2.9_pyth0n-pt2.p7z", "rating": 9.0, "length":54, "description": "Angela makes an unexpected acquaintance; Darlene realizes she's in deep; and an old friend reveals all to Elliot."}
+          ]
+        },        
+        {
+          "name": "Season 03", "rating": 9.1, "length":198,
+          "children": [
+            {"episodeNo": "01", "name": "eps3.0_power-saver-mode.h", "rating": 9.0, "length":62, "description": "Elliot realizes his mission, and needs help from Angela; Darlene worries about them coming out clean."},
+            {"episodeNo": "02", "name": "eps3.1_undo.gz", "rating": 9.4, "length":48, "description": "Elliot becomes encouraged trying to undo five/nine; Darlene gets stuck between a rock and a hard place; Mr. Robot sparks a panic."},
+            {"episodeNo": "03", "name": "eps3.2_legacy.so", "rating": 9.0, "length":46, "description": "The former interim CTO of E Corp returns."},
+            {"episodeNo": "04", "name": "eps3.3_metadata.par2", "rating": 8.7, "length":49, "description": "Dom has a close call; Elliot chases himself with Darlene on the lookout."}
+          ]
+        }
+      ]
+    }  
+  ]
+}
